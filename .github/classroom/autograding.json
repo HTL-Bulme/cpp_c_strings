@@ -1,58 +1,58 @@
 {
   "tests": [
     {
-      "name": "Test CPP implementation of `sum`",
+      "name": "Test CPP implementation of `capitalize`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [sum]",
+      "run": "build/c_string_test [capitalize]",
       "timeout": 2.5,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `product`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [product]",
+      "run": "build/c_string_test [product]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `min`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [min]",
+      "run": "build/c_string_test [min]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `max`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [max]",
+      "run": "build/c_string_test [max]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `count`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [count]",
+      "run": "build/c_string_test [count]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `mean`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [mean]",
+      "run": "build/c_string_test [mean]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `variance`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [variance]",
+      "run": "build/c_string_test [variance]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `subarray`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/array_test [variance]",
+      "run": "build/c_string_test [variance]",
       "timeout": 1,
       "points": 2
     }

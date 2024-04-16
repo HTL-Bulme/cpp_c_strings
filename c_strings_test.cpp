@@ -1,20 +1,45 @@
-#include "array.hpp"
-
 #include <cstddef>
-#include <cstdint>
+#include <string>
 
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/matchers/catch_matchers.hpp>
 #include <catch2/matchers/catch_matchers_floating_point.hpp>
+#include <catch2/matchers/catch_matchers_string.hpp>
 #include <catch2/matchers/catch_matchers_vector.hpp>
 
-TEST_CASE("empty array", "[sum]") {
-  int32_t a1[0];
-  REQUIRE(sum(a1, 0) == 0);
-  // callee cannot know the array is not empty
-  int32_t a2[2] = {3, 2};
-  REQUIRE(sum(a2, 0) == 0);
+
+void capitalize(char string[]);
+std::size_t str_len(const char[] str);
+void str_inverse_case(char str[]);
+bool str_starts_with(const char str[], const char prefix[]);
+bool str_ends_with(const char str[], const char suffix[]);
+unsigned str_count(const char str[], const char sub[]);
+bool str_is_ascii(const char str[]);
+bool str_is_digit(const char str[]);
+long str_index(const char str[], const char sub[]);
+void strcpy(char* dst, char* src, std::size_t dst_size);
+void join(char* array[], std::size_t count, char str[], char sep[]);
+
+using std::string;
+
+TEST_CASE("capitalize c string", "[capitalize]") {
+  char lower[] = "abcdef ghijklmnopqrstuvwxyz";
+  char upper[] = "ABCDEF GHIJK";
+  char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
+  char special[] = "Some punctuation &;-.: 345 !@# should be ok.";
+
+  capitalize(lower);
+  capitalize(upper);
+  capitalize(mixed);
+  capitalize(special);
+
+  CHECK_THAT(lower, Equals("Abcdef Ghijklmnopqrstuvwxyz"s, true));
+  CHECK_THAT(upper, Equals("ABCDEF GHIJK"s, true));
+  CHECK_THAT(mixed, Equals("The Quick Brown Fox Jumps Over The Lazy Dog."s, true));
+  CHECK_THAT(special, Equals("Some Punctuation &;-.: 345 !@# Should Be Ok."s, true));
 }
 
+/*
 TEST_CASE("single element", "[sum]") {
   int32_t a1[1] = {3};
   CHECK(sum(a1, 1) == 3);
@@ -327,3 +352,4 @@ TEST_CASE("regular array", "[subarray]") {
   }
 }
 
+*/
