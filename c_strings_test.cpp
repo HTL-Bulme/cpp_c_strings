@@ -1,3 +1,4 @@
+#include <catch2/internal/catch_case_sensitive.hpp>
 #include <cstddef>
 #include <string>
 
@@ -9,7 +10,7 @@
 
 
 void capitalize(char string[]);
-std::size_t str_len(const char[] str);
+std::size_t str_len(const char str[]);
 void str_inverse_case(char str[]);
 bool str_starts_with(const char str[], const char prefix[]);
 bool str_ends_with(const char str[], const char suffix[]);
@@ -33,10 +34,14 @@ TEST_CASE("capitalize c string", "[capitalize]") {
   capitalize(mixed);
   capitalize(special);
 
-  CHECK_THAT(lower, Equals("Abcdef Ghijklmnopqrstuvwxyz"s, true));
-  CHECK_THAT(upper, Equals("ABCDEF GHIJK"s, true));
-  CHECK_THAT(mixed, Equals("The Quick Brown Fox Jumps Over The Lazy Dog."s, true));
-  CHECK_THAT(special, Equals("Some Punctuation &;-.: 345 !@# Should Be Ok."s, true));
+  CHECK_THAT(lower, Catch::Matchers::Equals("Abcdef Ghijklmnopqrstuvwxyz",
+    Catch::CaseSensitive::Yes));
+  CHECK_THAT(upper, Catch::Matchers::Equals("ABCDEF GHIJK",
+    Catch::CaseSensitive::Yes));
+  CHECK_THAT(mixed, Catch::Matchers::Equals("The Quick Brown Fox Jumps Over The Lazy Dog.",
+    Catch::CaseSensitive::Yes));
+  CHECK_THAT(special, Catch::Matchers::Equals("Some Punctuation &;-.: 345 !@# Should Be Ok.",
+    Catch::CaseSensitive::Yes));
 }
 
 /*

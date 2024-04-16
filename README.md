@@ -1,7 +1,8 @@
 # Introductory C++ Exercises - Part 2
 
 In this homework you are asked to restrict yourself to not using any
-`include`. The purpose of this homework is to understand the low level
+`include` except `<cstddef>`.
+The purpose of this homework is to understand low level
 functionality that is usually provided by libraries.
 
 Compile your code via
@@ -28,7 +29,7 @@ Implement the following functions:
 
 ```cpp
 // Return the number of characters in `str` excluding the trailing '\0'.
-std::size_t str_len(const char[] str);
+std::size_t str_len(const char str[]);
 
 // "Hello World!" => "hELLO wORLD!"
 void str_inverse_case(char str[]);
