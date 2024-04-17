@@ -2,7 +2,7 @@
 
 void capitalize(char string[]);
 std::size_t str_len(const char str[]);
-void str_inverse_case(char str[]);
+void str_invert_case(char str[]);
 bool str_starts_with(const char str[], const char prefix[]);
 bool str_ends_with(const char str[], const char suffix[]);
 unsigned str_count(const char str[], const char sub[]);

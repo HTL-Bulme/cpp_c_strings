@@ -32,7 +32,7 @@ Implement the following functions:
 std::size_t str_len(const char str[]);
 
 // "Hello World!" => "hELLO wORLD!"
-void str_inverse_case(char str[]);
+void str_invert_case(char str[]);
 
 // Return true if `str` starts with prefix, otherwise false.
 bool str_starts_with(const char str[], const char prefix[]);
