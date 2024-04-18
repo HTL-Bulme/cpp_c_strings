@@ -9,5 +9,7 @@ unsigned str_count(const char str[], const char sub[]);
 bool str_is_ascii(const char str[]);
 bool str_is_digit(const char str[]);
 long str_index(const char str[], const char sub[]);
-void strcpy(char* dst, char* src, std::size_t dst_size);
-void join(char* array[], std::size_t count, char str[], char sep[]);
+void str_copy(char dst[], const char src[], std::size_t dst_size);
+bool str_equal(const char first[], const char second[]);
+void join(const char* array[], std::size_t count, char str[], const char sep[]);
+

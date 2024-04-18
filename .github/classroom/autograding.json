@@ -3,58 +3,86 @@
     {
       "name": "Test CPP implementation of `capitalize`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [capitalize]",
+      "run": "build/c_strings_test [capitalize]",
       "timeout": 2.5,
       "points": 1
     },
     {
-      "name": "Test CPP implementation of `product`",
+      "name": "Test CPP implementation of `str_len`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [product]",
+      "run": "build/c_strings_test [str_len]",
       "timeout": 1,
       "points": 1
     },
     {
-      "name": "Test CPP implementation of `min`",
+      "name": "Test CPP implementation of `invert`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [min]",
+      "run": "build/c_strings_test [invert]",
       "timeout": 1,
       "points": 1
     },
     {
-      "name": "Test CPP implementation of `max`",
+      "name": "Test CPP implementation of `starts_with`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [max]",
+      "run": "build/c_strings_test [starts_with]",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test CPP implementation of `ends_with`",
+      "setup": "mkdir -p build && cd build; cmake ..; make -j4",
+      "run": "build/c_strings_test [ends_with]",
       "timeout": 1,
       "points": 1
     },
     {
       "name": "Test CPP implementation of `count`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [count]",
+      "run": "build/c_strings_test [count]",
       "timeout": 1,
       "points": 1
     },
     {
-      "name": "Test CPP implementation of `mean`",
+      "name": "Test CPP implementation of `is_ascii`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [mean]",
+      "run": "build/c_strings_test [is_ascii]",
       "timeout": 1,
       "points": 1
     },
     {
-      "name": "Test CPP implementation of `variance`",
+      "name": "Test CPP implementation of `is_digit`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [variance]",
+      "run": "build/c_strings_test [is_digit]",
       "timeout": 1,
       "points": 1
     },
     {
-      "name": "Test CPP implementation of `subarray`",
+      "name": "Test CPP implementation of `index`",
       "setup": "mkdir -p build && cd build; cmake ..; make -j4",
-      "run": "build/c_string_test [variance]",
+      "run": "build/c_strings_test [index]",
+      "timeout": 1,
+      "points": 1
+    },
+    {
+      "name": "Test CPP implementation of `str_copy`",
+      "setup": "mkdir -p build && cd build; cmake ..; make -j4",
+      "run": "build/c_strings_test [str_copy]",
       "timeout": 1,
       "points": 2
+    },
+    {
+      "name": "Test CPP implementation of `str_equal`",
+      "setup": "mkdir -p build && cd build; cmake ..; make -j4",
+      "run": "build/c_strings_test [str_equal]",
+      "timeout": 1,
+      "points": 2
+    },
+    {
+      "name": "Test CPP implementation of `join`",
+      "setup": "mkdir -p build && cd build; cmake ..; make -j4",
+      "run": "build/c_strings_test [join]",
+      "timeout": 1,
+      "points": 4
     }
   ],
   "__deactivated_tests": [
