@@ -28,7 +28,7 @@ using Catch::CaseSensitive;
 using Catch::Matchers::Equals;
 
 
-TEST_CASE("capitalize c string", "[capitalize]") {
+TEST_CASE("capitalize_c_string", "[capitalize]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char upper[] = "ABCDEF GHIJK";
   char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
@@ -50,7 +50,7 @@ TEST_CASE("capitalize c string", "[capitalize]") {
 }
 
 
-TEST_CASE("length of c string", "[str_len]") {
+TEST_CASE("length_of_c_string", "[str_len]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char upper[] = "ABCDEF GHIJK";
   char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
@@ -62,7 +62,7 @@ TEST_CASE("length of c string", "[str_len]") {
 }
 
 
-TEST_CASE("invert case", "[invert]") {
+TEST_CASE("invert_case", "[invert]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char upper[] = "ABCDEF GHIJK";
   char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
@@ -82,7 +82,7 @@ TEST_CASE("invert case", "[invert]") {
 }
 
 
-TEST_CASE("string starts with given prefix", "[starts_with]") {
+TEST_CASE("string_starts_with_given_prefix", "[starts_with]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char upper[] = "ABCDEF GHIJK";
   char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
@@ -90,6 +90,9 @@ TEST_CASE("string starts with given prefix", "[starts_with]") {
 
   CHECK(str_starts_with(lower, ""));
   CHECK(str_starts_with(lower, "abcd"));
+  CHECK(not str_starts_with(lower, "abcD"));
+  CHECK(not str_starts_with(lower, "abc def"));
+  CHECK(not str_starts_with(lower, "abcef"));
   CHECK(str_starts_with(lower, "abcdef ghi"));
   CHECK(not str_starts_with(lower, "cdef"));
   CHECK(str_starts_with(upper, "ABCD"));
@@ -100,7 +103,7 @@ TEST_CASE("string starts with given prefix", "[starts_with]") {
 }
 
 
-TEST_CASE("string ends with a given suffix", "[ends_with]") {
+TEST_CASE("string_ends_with_a_given_suffix", "[ends_with]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char upper[] = "ABCDEF GHIJK";
   char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
@@ -118,7 +121,7 @@ TEST_CASE("string ends with a given suffix", "[ends_with]") {
 }
 
 
-TEST_CASE("count number of occurances of substring", "[count]") {
+TEST_CASE("count_number_of_occurances_of_substring", "[count]") {
   char text[] = "Lorem ipsum dolor sit amet; lorem ipsum dolor sit amet; sit";
 
   CHECK(str_count(text, "Lorem") == 1);
@@ -130,7 +133,7 @@ TEST_CASE("count number of occurances of substring", "[count]") {
 }
 
 
-TEST_CASE("string only has ascii characters", "[is_ascii]") {
+TEST_CASE("string_only_has_ascii_characters", "[is_ascii]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char upper[] = "ABCDEF GHIJK";
   char mixed[] = "The quick brown Fox jumps over the lazy Dog.";
@@ -146,7 +149,7 @@ TEST_CASE("string only has ascii characters", "[is_ascii]") {
 }
 
 
-TEST_CASE("string only has digits", "[is_digit]") {
+TEST_CASE("string_only_has_digits", "[is_digit]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
   char mixed[] = "123a456";
   char pure[] = "98475320987123049823984759823875203498392785";
@@ -160,7 +163,7 @@ TEST_CASE("string only has digits", "[is_digit]") {
 }
 
 
-TEST_CASE("position of first occurance of `sub` in `str` or -1", "[index]") {
+TEST_CASE("position_of_first_occurance_of_sub_in_str_or_-1", "[index]") {
   char text[] = "Lorem ipsum dolor sit amet; lorem ipsum dolor sit amet; sit";
 
   CHECK(str_index(text, "Lorem") == 0);
@@ -170,7 +173,7 @@ TEST_CASE("position of first occurance of `sub` in `str` or -1", "[index]") {
 }
 
 
-TEST_CASE("make a copy of the given string", "[str_copy]") {
+TEST_CASE("make_a_copy_of_the_given_string", "[str_copy]") {
   char single[] = "a";
   char special[] = "Some punctuation &;-.: 345 !@# should be ok.";
   char single_c[2];
@@ -193,14 +196,14 @@ TEST_CASE("make a copy of the given string", "[str_copy]") {
   CHECK(large_c[3] == 0);
   CHECK(large_c[4] == '5');
 
-  SECTION("must not crash for large destinations if source is small") {
+  SECTION("must_not_crash_for_large_destinations_if_source_is_small") {
     str_copy(special_c, special, (size_t) -1);
     CHECK(true);
   }
 }
 
 
-TEST_CASE("compare two strings for equality", "[str_equal]") {
+TEST_CASE("compare_two_strings_for_equality", "[str_equal]") {
   char single[] = "a";
   char special[] = "Some punctuation &;-.: 345 !@# should be ok.";
 
@@ -210,18 +213,18 @@ TEST_CASE("compare two strings for equality", "[str_equal]") {
     CHECK(str_equal(special, special));
   }
 
-  SECTION("strings of different lengths are never equal") {
+  SECTION("strings_of_different_lengths_are_never_equal") {
     CHECK(not str_equal("123", "12345"));
     CHECK(not str_equal("12345", "123"));
   }
 }
 
 
-TEST_CASE("join array of strings", "[join]") {
+TEST_CASE("join_array_of_strings", "[join]") {
   const char* array[] = {"chris", "pat", "Sue", "Steve"};
   char str[100];
 
-  SECTION("regular use cases") {
+  SECTION("regular_use_cases") {
     join(array, 4, str, " | ");
     CHECK_THAT(str, Equals("chris | pat | Sue | Steve", CaseSensitive::Yes));
     join(array, 4, str, "");
@@ -230,7 +233,7 @@ TEST_CASE("join array of strings", "[join]") {
     CHECK_THAT(str, Equals("chris,pat,Sue,Steve", CaseSensitive::Yes));
   }
 
-  SECTION("empty array") {
+  SECTION("empty_array") {
     str[0] = 'x';
     str[1] = 0;
     join({}, 0, str, "");
@@ -241,7 +244,7 @@ TEST_CASE("join array of strings", "[join]") {
     CHECK_THAT(str, Equals("", CaseSensitive::Yes));
   }
 
-  SECTION("single element") {
+  SECTION("single_element") {
     const char* single[] = {"name"};
     join(single, 1, str, "");
     CHECK_THAT(str, Equals("name", CaseSensitive::Yes));
