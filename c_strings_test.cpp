@@ -49,6 +49,11 @@ TEST_CASE("capitalize_c_string", "[capitalize]") {
     Catch::CaseSensitive::Yes));
 }
 
+TEST_CASE("capitalize_empty_string", "[capitalize]") {
+  char empty[] = "";
+  capitalize(empty);  // might crash on incorrect implementation
+  CHECK(empty[0] == 0);
+}
 
 TEST_CASE("length_of_c_string", "[str_len]") {
   char lower[] = "abcdef ghijklmnopqrstuvwxyz";
